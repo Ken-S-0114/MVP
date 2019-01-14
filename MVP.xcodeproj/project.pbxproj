@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		B225EFE921ECB1650009EC33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225EFE821ECB1650009EC33 /* AppDelegate.swift */; };
-		B225EFEB21ECB1650009EC33 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225EFEA21ECB1650009EC33 /* ViewController.swift */; };
 		B225EFEE21ECB1650009EC33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B225EFEC21ECB1650009EC33 /* Main.storyboard */; };
 		B225EFF021ECB1680009EC33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B225EFEF21ECB1680009EC33 /* Assets.xcassets */; };
 		B225EFF321ECB1680009EC33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B225EFF121ECB1680009EC33 /* LaunchScreen.storyboard */; };
 		B225EFFE21ECB1680009EC33 /* MVPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225EFFD21ECB1680009EC33 /* MVPTests.swift */; };
 		B225F00921ECB1680009EC33 /* MVPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225F00821ECB1680009EC33 /* MVPUITests.swift */; };
 		B225F01921ECB2BA0009EC33 /* GitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B225F01821ECB2BA0009EC33 /* GitHub.framework */; };
+		B225F01B21ECB6D40009EC33 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225F01A21ECB6D40009EC33 /* SearchUserViewController.swift */; };
+		B225F01D21ECB8240009EC33 /* SearchUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225F01C21ECB8240009EC33 /* SearchUserPresenter.swift */; };
+		B225F02121ECC5060009EC33 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B225F02021ECC5050009EC33 /* UserDetailViewController.swift */; };
+		B228AC9D21ECC9D800595549 /* SearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228AC9C21ECC9D800595549 /* SearchUserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,6 @@
 /* Begin PBXFileReference section */
 		B225EFE521ECB1650009EC33 /* MVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B225EFE821ECB1650009EC33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B225EFEA21ECB1650009EC33 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B225EFED21ECB1650009EC33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B225EFEF21ECB1680009EC33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B225EFF221ECB1680009EC33 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		B225F00821ECB1680009EC33 /* MVPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVPUITests.swift; sourceTree = "<group>"; };
 		B225F00A21ECB1680009EC33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B225F01821ECB2BA0009EC33 /* GitHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GitHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B225F01A21ECB6D40009EC33 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
+		B225F01C21ECB8240009EC33 /* SearchUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserPresenter.swift; sourceTree = "<group>"; };
+		B225F02021ECC5050009EC33 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		B228AC9C21ECC9D800595549 /* SearchUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +107,13 @@
 		B225EFE721ECB1650009EC33 /* MVP */ = {
 			isa = PBXGroup;
 			children = (
+				B225F02221ECC5140009EC33 /* UserSearch */,
 				B225EFE821ECB1650009EC33 /* AppDelegate.swift */,
-				B225EFEA21ECB1650009EC33 /* ViewController.swift */,
 				B225EFEC21ECB1650009EC33 /* Main.storyboard */,
 				B225EFEF21ECB1680009EC33 /* Assets.xcassets */,
 				B225EFF121ECB1680009EC33 /* LaunchScreen.storyboard */,
 				B225EFF421ECB1680009EC33 /* Info.plist */,
+				B225F02021ECC5050009EC33 /* UserDetailViewController.swift */,
 			);
 			path = MVP;
 			sourceTree = "<group>";
@@ -135,6 +142,16 @@
 				B225F01821ECB2BA0009EC33 /* GitHub.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B225F02221ECC5140009EC33 /* UserSearch */ = {
+			isa = PBXGroup;
+			children = (
+				B225F01A21ECB6D40009EC33 /* SearchUserViewController.swift */,
+				B225F01C21ECB8240009EC33 /* SearchUserPresenter.swift */,
+				B228AC9C21ECC9D800595549 /* SearchUserModel.swift */,
+			);
+			path = UserSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +285,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B225EFEB21ECB1650009EC33 /* ViewController.swift in Sources */,
+				B228AC9D21ECC9D800595549 /* SearchUserModel.swift in Sources */,
 				B225EFE921ECB1650009EC33 /* AppDelegate.swift in Sources */,
+				B225F02121ECC5060009EC33 /* UserDetailViewController.swift in Sources */,
+				B225F01D21ECB8240009EC33 /* SearchUserPresenter.swift in Sources */,
+				B225F01B21ECB6D40009EC33 /* SearchUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
