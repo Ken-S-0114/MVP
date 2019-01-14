@@ -18,6 +18,18 @@ final class SearchUserViewController: UIViewController {
     func inject(presenter: SearchUserPresenterInput) {
         self.presenter = presenter
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        setup()
+    }
+
+    private func setup() {
+        tableView.estimatedRowHeight = 64
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "UserCell")
+    }
 }
 
 extension SearchUserViewController: UISearchBarDelegate {
@@ -37,11 +49,17 @@ extension SearchUserViewController: UITableViewDelegate {
 // ユーザー入力を Presenter に伝える
 extension SearchUserViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return presenter.numberOfUsers
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell") as! UserCell
+
+        if let user = presenter.user(forRow: indexPath.row) {
+            cell.configure(user: user)
+        }
+
+        return cell
     }
 }
 
@@ -56,7 +74,6 @@ extension SearchUserViewController: SearchUserPresenterOutput {
         name: "UserDetail",
         bundle: nil)
         .instantiateInitialViewController() as! UserDetailViewController
-
     }
 }
 

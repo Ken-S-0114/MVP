@@ -9,6 +9,7 @@
 import GitHub
 
 protocol SearchUserPresenterInput {
+    var numberOfUsers: Int { get }
     func user(forRow row: Int) -> User?
     func didSelectRow(at index: IndexPath)
     func didTapSearchButton(text: String?)
@@ -30,6 +31,10 @@ final class SearchUserPresenter: SearchUserPresenterInput {
     init(view: SearchUserPresenterOutput, model: SearchUserModelInput) {
         self.view = view
         self.model = model
+    }
+
+    var numberOfUsers: Int {
+        return users.count
     }
 
     func user(forRow row: Int) -> User? {
@@ -55,7 +60,7 @@ final class SearchUserPresenter: SearchUserPresenterInput {
                 }
             case .failure(let error):
                 // TODO: Error Handling
-                ()
+                debugPrint(error)
             }
         }
     }
